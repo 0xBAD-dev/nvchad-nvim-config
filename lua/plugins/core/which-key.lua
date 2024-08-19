@@ -31,6 +31,7 @@ return {
         { "<leader>g", group = "Git", icon = "󰊢" },
         { "<leader>h", group = "Harpoon", icon = "" },
         { "<leader>H", group = "HTTP", icon = "" },
+        { "<leader>j", group = "Flash", icon = "󰉁" },
         { "<leader>l", group = "LSP", icon = "" },
         { "<leader>L", group = "Laravel", icon = "󰫐" },
         { "<leader>n", group = "Neovim", icon = "" },
