@@ -10,6 +10,14 @@ local function lsp_keymaps(bufnr)
   keymap("n", "gD", "<cmd>Lspsaga finder<cr>", buf_opts)
   keymap("n", "gd", "<cmd>Lspsaga goto_definition<cr>", buf_opts)
   keymap("n", "<leader>la", vim.lsp.buf.code_action, buf_opts)
+
+  -- own mappings (ref https://github.com/serpro69/nvim-config/commit/bbe9824da9fe024f6fc460520ec5e618740a888e)
+  keymap("n", "gD", vim.lsp.buf.declaration, { desc = "LSP | GoTo declaration", buffer = bufnr, silent = true })
+  keymap("n", "<leader>lD", "<cmd>Lspsaga finder<cr>", buf_opts)
+  keymap("n", "<leader>ld", "<cmd>Lspsaga goto_definition<cr>", buf_opts)
+  keymap("n", "gd", vim.lsp.buf.definition, { desc = "LSP | GoTo definition", buffer = bufnr, silent = true })
+  --
+
   -- keymap("n", "gd", vim.lsp.buf.definition, buf_opts)
   keymap("n", "gl", "<cmd>Lspsaga show_line_diagnostics<cr>", buf_opts)
   keymap("n", "gp", "<cmd>Lspsaga peek_definition<cr>", buf_opts)
