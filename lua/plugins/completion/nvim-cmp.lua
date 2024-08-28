@@ -83,7 +83,7 @@ return {
     },
     {
       "zbirenbaum/copilot.lua", -- AI programming
-      enabled = false, -- currently only used for auth to generate a token for codecompanion plugin
+      enabled = true,
       event = "InsertEnter",
       init = function()
         require("legendary").commands {
