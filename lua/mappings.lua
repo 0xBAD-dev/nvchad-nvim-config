@@ -16,9 +16,6 @@ vim.keymap.set("n", "<leader>y", "<cmd>%y+<cr>", { desc = "General | Yank All Te
 -- Quit
 vim.keymap.set("n", "<leader>q", "<cmd>qa!<cr>", { desc = "General | Quit", silent = true })
 
--- Save Buffer
-vim.keymap.set("n", "<C-s>", "<cmd>w<cr>", { desc = "General | Save Buffer", silent = true })
-
 -- Toggle Tabufline
 vim.keymap.set("n", "<leader>ob", function()
   if vim.o.showtabline == 2 then
