@@ -51,4 +51,7 @@ else
   require "core.filetypes"
   require "core.utils"
   require "mappings"
+
+  -- Own Configs
+  require "serpro69.mappings"
 end
