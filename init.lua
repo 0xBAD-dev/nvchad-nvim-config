@@ -42,6 +42,7 @@ require "core.commands"
 
 vim.schedule(function()
   require "mappings"
+  require "serpro69.mappings"
 end)
 
 require "myinit"
