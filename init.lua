@@ -30,13 +30,16 @@ else
 
   -- NOTE: Load plugins
   require("lazy").setup({
-    {
-      "NvChad/NvChad",
-      lazy = false,
-      branch = "v2.5",
-      import = "nvchad.plugins",
-    },
+    -- region Own Configs
+    -- {
+    --   "NvChad/NvChad",
+    --   lazy = false,
+    --   branch = "v2.5",
+    --   import = "nvchad.plugins",
+    -- },
 
+    { import = "serpro69.nvchad" },
+    -- endregion
     { import = "plugins" },
   }, lazy_config)
 
@@ -52,6 +55,8 @@ else
   require "core.utils"
   require "mappings"
 
-  -- Own Configs
+  -- region Own Configs
   require "serpro69.mappings"
+  require "core.serpro69.autocommands"
+  -- endregion
 end
