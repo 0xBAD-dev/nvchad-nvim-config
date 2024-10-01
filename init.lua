@@ -24,13 +24,14 @@ local lazy_config = require "core.lazy"
 
 -- NOTE: Load plugins
 require("lazy").setup({
-  {
-    "NvChad/NvChad",
-    lazy = false,
-    branch = "v2.5",
-    import = "nvchad.plugins",
-  },
+  -- {
+  --   "NvChad/NvChad",
+  --   lazy = false,
+  --   branch = "v2.5",
+  --   import = "nvchad.plugins",
+  -- },
 
+  { import = "serpro69.nvchad" },
   { import = "plugins" },
 }, lazy_config)
 
