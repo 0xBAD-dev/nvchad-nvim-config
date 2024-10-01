@@ -23,4 +23,7 @@ return {
   {
     "nvchad/minty",
   },
+
+  -- overrides
+  { import = "plugins.override.ui" },
 }
