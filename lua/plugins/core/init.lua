@@ -44,4 +44,7 @@ return {
     opts = {},
     cmd = { "Typr", "TyprStats" },
   },
+
+  -- NOTE: own overrides
+  { import = "plugins.override.ui" },
 }
