@@ -7,6 +7,10 @@ else
   require "core.globals"
   require "core.env"
 
+  -- region Override some globals with my own values
+  require "core.serpro69.globals"
+  -- endregion
+
   if vim.version().minor >= 11 then
     vim.tbl_add_reverse_lookup = function(tbl)
       for k, v in pairs(tbl) do
