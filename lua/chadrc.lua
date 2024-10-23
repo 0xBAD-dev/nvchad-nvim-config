@@ -122,9 +122,9 @@ M.mason = {
     "trivy",
 
     -- Web Development
-    -- "css-lsp",
-    -- "html-lsp",
-    -- "typescript-language-server",
+    "css-lsp",
+    "html-lsp",
+    "typescript-language-server",
     -- "deno",
     -- "vue-language-server",
     -- "tailwindcss-language-server",
@@ -171,6 +171,7 @@ M.mason = {
   },
 }
 
+-- Disable signature help because it conflicts with folke/noice.nvim plugin
 M.lsp = { signature = false }
 
 M.base46 = {
