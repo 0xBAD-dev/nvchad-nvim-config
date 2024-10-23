@@ -1,4 +1,5 @@
 require "core.globals"
+require "core.serpro69.globals" -- override some globals with my own values
 
 if vim.version().minor >= 11 then
   vim.tbl_add_reverse_lookup = function(tbl)
