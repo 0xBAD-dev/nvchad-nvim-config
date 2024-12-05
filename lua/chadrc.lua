@@ -161,6 +161,9 @@ M.mason = {
     -- "jdtls",
     -- "kotlin-language-server",
 
+    -- Toml
+    "taplo",
+
     -- Yaml
     "yaml-language-server",
     "yamllint",
