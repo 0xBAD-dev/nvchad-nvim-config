@@ -1,6 +1,14 @@
 ---@type NvPluginSpec
 -- NOTE: Completion Engine
 
+local has_words_before = function()
+  if vim.api.nvim_get_option_value("buftype", { buf = 0 }) == "prompt" then
+    return false
+  end
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_text(0, line - 1, 0, line - 1, col, {})[1]:match "^%s*$" == nil
+end
+
 return {
   "hrsh7th/nvim-cmp",
   event = { "InsertEnter", "CmdlineEnter" },
@@ -21,6 +29,7 @@ return {
       name = "lazydev",
       group_index = 0, -- set group index to 0 to skip loading LuaLS completions
     })
+    table.insert(opts.sources, 2, { name = "copilot" })
 
     require("cmp").setup.filetype({ "mysql", "sql" }, {
       sources = {
@@ -31,6 +40,20 @@ return {
 
     opts.mapping = vim.tbl_extend("force", {}, opts.mapping, {
       -- You can add here new mappings.
+      ["<Tab>"] = function(fallback)
+        if require("cmp").visible() and has_words_before() then
+          require("cmp").select_next_item { behavior = require("cmp").SelectBehavior.Select }
+        else
+          fallback()
+        end
+      end,
+      ["<S-Tab>"] = vim.schedule_wrap(function(fallback)
+        if require("cmp").visible() then
+          require("cmp").select_prev_item { behavior = require("cmp").SelectBehavior.Select }
+        else
+          fallback()
+        end
+      end),
     })
 
     opts.completion["completeopt"] = "menu,menuone,noselect" -- disable autoselect
@@ -130,10 +153,15 @@ return {
         }
       end,
       opts = {
+        copilot_model = "gpt-4o-copilot",
         panel = {
+          -- It is recommended to disable copilot.lua's suggestion and panel modules, as they can interfere with completions properly appearing in copilot-cmp
+          enabled = false,
           auto_refresh = true,
         },
         suggestion = {
+          -- It is recommended to disable copilot.lua's suggestion and panel modules, as they can interfere with completions properly appearing in copilot-cmp
+          enabled = false,
           auto_trigger = true, -- Suggest as we start typing
           keymap = {
             accept_word = "<C-l>",
@@ -169,6 +197,12 @@ return {
           end,
         },
       },
+    },
+    {
+      "zbirenbaum/copilot-cmp",
+      config = function()
+        require("copilot_cmp").setup()
+      end,
     },
     {
       "olimorris/codecompanion.nvim",
