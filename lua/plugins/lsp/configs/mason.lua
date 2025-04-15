@@ -45,7 +45,7 @@ return {
       local disabled_servers = {
         "jdtls",
         "rust_analyzer",
-        "ts_ls",
+        -- "ts_ls",
       }
 
       mason_lspconfig.setup_handlers {
