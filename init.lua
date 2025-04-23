@@ -61,6 +61,8 @@ else
 
   -- region Own Configs
   require "serpro69.mappings"
+  require "core.serpro69.init"
   require "core.serpro69.autocommands"
+  require "serpro69.notify"
   -- endregion
 end
