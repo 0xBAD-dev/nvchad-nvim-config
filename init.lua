@@ -7,8 +7,9 @@ else
   require "core.globals"
   require "core.env"
 
-  -- region Override some globals with my own values
+  -- region Override with my own values
   require "core.serpro69.globals"
+  require "serpro69.options" -- add/override vim options
   -- endregion
 
   if vim.version().minor >= 11 then
