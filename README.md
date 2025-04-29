@@ -1,13 +1,10 @@
 <div align="center">
 
-![Last commit](https://img.shields.io/github/last-commit/serpro69/nvim-config?style=for-the-badge&logo=git&color=000F10&logoColor=dark%20orange&labelColor=302D41)
+![](https://img.shields.io/github/last-commit/serpro69/nvim-config?style=for-the-badge&logo=git&color=000F10&logoColor=dark%20orange&labelColor=302D41)
 
 [![](https://img.shields.io/badge/Neovim-0.11.4+-blueviolet.svg?style=for-the-badge&color=000F10&logo=Neovim&logoColor=green&labelColor=302D41)](https://github.com/neovim/neovim)
 
-<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/a47e9def-b62d-47b5-86db-85442050d1dc" />
-
-<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/53014fc1-defc-472d-9419-15dafe78c279" />
-
+![](./docs/assets/nvdash_buffer.png)
 
 </div>
 
@@ -86,20 +83,9 @@ Please follow these steps:
 - **Discord Rich Presence**: Tailor your presence like never before with [cord.nvim](https://github.com/vyfor/cord.nvim).
 <!-- - **Markdown Preview**: Preview your Markdown files with [markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim). -->
 
-## 🌟 Stargazers
+## 🙏 Ack
 
-I appreciate the support from all the Stargazers!
-
-[![Stargazers](http://reporoster.com/stars/dark/notext/Alexis12119/nvim-config)](https://github.com/Alexis12119/nvim-config/stargazers)
-
-### CREDITS
-
-This Neovim configuration is built upon the foundation of NvChad. Special thanks to the NvChad community and developers for their fantastic work.
-
-- [NvChad](https://github.com/NvChad/NvChad)
+This Neovim configuration is my customized fork of [Alexis12119/nvim-config](https://github.com/Alexis12119/nvim-config), which in turn is built upon the foundation of [NvChad](https://nvchad.com/). Special thanks to the NvChad community and developers for their fantastic work.
 
 > “Make it work, make it right, make it fast.”
-
-\- Kent Beck
-
----
+> \- Kent Beck
