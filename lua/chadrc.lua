@@ -139,6 +139,10 @@ M.mason = {
     -- PHP
     -- "intelephense",
 
+    -- Python
+    "autopep8",
+    "pyright",
+
     -- C/C++
     -- "clangd",
     -- "clang-format",
