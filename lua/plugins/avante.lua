@@ -8,6 +8,12 @@ return {
     -- add any opts here
     -- for example
     provider = "copilot",
+    copilot = {
+      model = require("serpro69.plugins_aux").ai_models.copilot.claude_sonnet,
+    },
+    gemini = {
+      model = require("serpro69.plugins_aux").ai_models.gemini.pro,
+    },
     windows = {
       width = 0.2 * vim.o.columns,
     },
