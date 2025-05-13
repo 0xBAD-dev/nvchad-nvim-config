@@ -16,7 +16,7 @@ return {
     -- for example
     provider = "gemini",
     copilot = {
-      model = require("serpro69.plugins_aux").ai_models.copilot.claude_sonnet,
+      model = require("serpro69.plugins_aux").ai_models.gemini.pro,
     },
     gemini = {
       model = require("serpro69.plugins_aux").ai_models.gemini.pro,
