@@ -15,6 +15,7 @@ return {
   opts = {
     preview = {
       filetypes = { "markdown", "Avante", "codecompanion" },
+      enable = false,
       ignore_buftypes = {},
     },
     max_length = 99999,
