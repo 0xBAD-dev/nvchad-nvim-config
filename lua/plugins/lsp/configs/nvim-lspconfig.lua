@@ -106,5 +106,8 @@ return {
     for server in pairs(vim.lsp._enabled_configs) do
       configure(server)
     end
+
+    -- experimental
+    configure "kotlin_lsp"
   end,
 }
