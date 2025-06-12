@@ -54,7 +54,8 @@ return {
           })
 
           local servers = mason_lspconfig.get_installed_servers()
-          local excluded = { "ts_ls", "jdtls", "rust_analyzer" }
+          -- local excluded = { "ts_ls", "jdtls", "rust_analyzer" }
+          local excluded = { "jdtls", "rust_analyzer" }
 
           for _, server in ipairs(servers) do
             if not vim.tbl_contains(excluded, server) then
