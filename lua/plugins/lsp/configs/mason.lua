@@ -52,7 +52,8 @@ return {
           -- Default config for all servers
           vim.lsp.config("*", default_config)
 
-          local excluded = { "ts_ls", "jdtls", "rust_analyzer" }
+          -- local excluded = { "ts_ls", "jdtls", "rust_analyzer" }
+          local excluded = { "jdtls", "rust_analyzer" }
 
           local function setup_servers()
             for _, server in ipairs(mason_lspconfig.get_installed_servers()) do
