@@ -51,7 +51,8 @@ return {
             on_init = opts.on_init,
           })
 
-          local excluded = { "ts_ls", "jdtls", "rust_analyzer" }
+          -- local excluded = { "ts_ls", "jdtls", "rust_analyzer" }
+          local excluded = { "jdtls", "rust_analyzer" }
 
           local function setup_servers()
             for _, server in ipairs(mason_lspconfig.get_installed_servers()) do
