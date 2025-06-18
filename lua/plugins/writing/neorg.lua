@@ -4,10 +4,11 @@ return {
   "nvim-neorg/neorg",
   -- lazy = false,
   ft = { "norg" },
+  enabled = false,
   version = "*",
   opts = {
     load = {
-      ["core.defaults"] = {},                                                     -- Loads default behaviour
+      ["core.defaults"] = {}, -- Loads default behaviour
       ["core.concealer"] = { config = { folds = true, icon_preset = "varied" } }, -- Adds pretty icons to your documents
       ["core.keybinds"] = {
         config = {
