@@ -70,11 +70,15 @@ return {
                   end
                   vim.lsp.config(server, settings)
                 else
-                  vim.notify(
-                    string.format("LSP settings file for '%s' not found", server),
-                    vim.log.levels.WARN,
-                    { title = "LSP" }
-                  )
+                  local ignored = { "vimls", "taplo", "tflint", "golangci_lint_ls", "nil_ls" }
+                  if not vim.tbl_contains(ignored, server) then
+                    -- Notify if settings file not found
+                    vim.notify(
+                      string.format("LSP settings file for '%s' not found", server),
+                      vim.log.levels.WARN,
+                      { title = "LSP" }
+                    )
+                  end
                 end
                 vim.lsp.enable(server)
               end
