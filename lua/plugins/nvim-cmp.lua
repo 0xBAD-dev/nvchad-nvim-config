@@ -151,12 +151,12 @@ return {
         copilot_model = "gpt-4o-copilot",
         panel = {
           -- It is recommended to disable copilot.lua's suggestion and panel modules, as they can interfere with completions properly appearing in copilot-cmp
-          enabled = false,
+          enabled = true,
           auto_refresh = true,
         },
         suggestion = {
           -- It is recommended to disable copilot.lua's suggestion and panel modules, as they can interfere with completions properly appearing in copilot-cmp
-          enabled = false,
+          enabled = true,
           auto_trigger = true, -- Suggest as we start typing
           keymap = {
             accept_word = "<C-l>",
@@ -195,6 +195,7 @@ return {
     },
     {
       "zbirenbaum/copilot-cmp",
+      enabled = false,
       config = function()
         require("copilot_cmp").setup()
       end,
