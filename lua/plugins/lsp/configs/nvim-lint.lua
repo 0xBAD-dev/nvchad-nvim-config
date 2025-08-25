@@ -9,6 +9,7 @@ local linters_by_ft = {
   typescriptreact = { "eslint_d" },
   yaml = { "yamllint" },
   -- github = { "actionlint" },
+  kotlin = { "ktlint" },
 }
 
 ---@type NvPluginSpec
