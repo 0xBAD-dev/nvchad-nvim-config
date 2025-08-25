@@ -57,38 +57,45 @@ return {
           -- local excluded = { "ts_ls", "jdtls", "rust_analyzer" }
           local excluded = { "jdtls", "rust_analyzer" }
 
+          local function configure(server)
+            -- Load LSP Settings(If Exists)
+            local ok_settings, settings = pcall(require, "plugins.lsp.settings." .. server)
+            if ok_settings then
+              vim.lsp.config(string.lower(server), settings)
+              if server == "ts_ls" then -- for some reason ts_ls doesn't get these from the wildcard lsp config
+                vim.lsp.config[server] = {
+                  capabilities = opts.capabilities,
+                  on_attach = opts.on_attach,
+                  on_init = opts.on_init,
+                }
+              end
+              vim.lsp.config(server, settings)
+            else
+              local ignore_notify = { "vimls", "taplo", "tflint", "golangci_lint_ls", "nil_ls" }
+              if not vim.tbl_contains(ignore_notify, server) then
+                -- Notify if settings file not found
+                vim.notify(
+                  string.format("LSP settings file for '%s' not found", server),
+                  vim.log.levels.WARN,
+                  { title = "LSP" }
+                )
+              end
+            end
+
+            -- Enable LSP
+            vim.lsp.enable(server)
+          end
+
           for _, server in ipairs(servers) do
             if not vim.tbl_contains(excluded, server) then
-              -- Load LSP Settings(If Exists)
-              local ok_settings, settings = pcall(require, "plugins.lsp.settings." .. server)
-              if ok_settings then
-                vim.lsp.config(string.lower(server), settings)
-                if server == "ts_ls" then -- for some reason ts_ls doesn't get these from the wildcard lsp config
-                  vim.lsp.config[server] = {
-                    capabilities = opts.capabilities,
-                    on_attach = opts.on_attach,
-                    on_init = opts.on_init,
-                  }
-                end
-                vim.lsp.config(server, settings)
-              else
-                local ignored = { "vimls", "taplo", "tflint", "golangci_lint_ls", "nil_ls" }
-                if not vim.tbl_contains(ignored, server) then
-                  -- Notify if settings file not found
-                  vim.notify(
-                    string.format("LSP settings file for '%s' not found", server),
-                    vim.log.levels.WARN,
-                    { title = "LSP" }
-                  )
-                end
-              end
-
-              -- Enable LSP
-              vim.lsp.enable(server)
+              configure(server)
             end
           end
 
           vim.lsp.enable "gdscript"
+
+          -- not installed via mason
+          configure "kotlin_lsp"
         end)
       end,
     },
