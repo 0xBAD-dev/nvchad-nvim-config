@@ -159,6 +159,8 @@ M.mason = {
     -- Java
     -- "jdtls",
     -- "kotlin-language-server",
+    "ktfmt",
+    "ktlint",
 
     -- Toml
     "taplo",
