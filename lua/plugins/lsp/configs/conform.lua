@@ -20,6 +20,7 @@ local formatters_by_ft = {
   typescript = { "prettier" },
   typescriptreact = { "prettier" },
   vue = { "prettier" },
+  kotlin = { "ktfmt" },
 }
 
 ---@type NvPluginSpec
@@ -45,4 +46,10 @@ return {
     end,
     formatters_by_ft = formatters_by_ft,
   },
+  config = function(_, opts)
+    require("conform").setup(opts)
+    require("conform").formatters.ktfmt = {
+      append_args = { "--kotlinlang-style" },
+    }
+  end,
 }
