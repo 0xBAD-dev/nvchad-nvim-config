@@ -55,30 +55,38 @@ return {
           -- local excluded = { "ts_ls", "jdtls", "rust_analyzer" }
           local excluded = { "jdtls", "rust_analyzer" }
 
+          local function configure(server)
+            -- Load LSP Settings(If Exists)
+            local ok_settings, settings = pcall(require, "plugins.lsp.settings." .. server)
+            if ok_settings then
+              local cfg = vim.tbl_deep_extend("force", settings, default_config)
+              vim.lsp.config(server, cfg)
+            else
+              local ignore_notify = { "vimls", "taplo", "tflint", "golangci_lint_ls", "nil_ls", "stylua" }
+              if not vim.tbl_contains(ignore_notify, server) then
+                -- Notify if settings file not found
+                vim.notify(
+                  string.format("LSP settings file for '%s' not found", server),
+                  vim.log.levels.WARN,
+                  { title = "LSP" }
+                )
+              end
+            end
+            vim.lsp.enable(server)
+          end
+
           local function setup_servers()
             for _, server in ipairs(mason_lspconfig.get_installed_servers()) do
               if not vim.tbl_contains(excluded, server) then
-                -- Load server-specific settings if available
-                local ok_settings, settings = pcall(require, "plugins.lsp.settings." .. server)
-                if ok_settings then
-                  local cfg = vim.tbl_deep_extend("force", settings, default_config)
-                  vim.lsp.config(server, cfg)
-                else
-                  local ignored = { "vimls", "taplo", "tflint", "golangci_lint_ls", "nil_ls" }
-                  if not vim.tbl_contains(ignored, server) then
-                    -- Notify if settings file not found
-                    vim.notify(
-                      string.format("LSP settings file for '%s' not found", server),
-                      vim.log.levels.WARN,
-                      { title = "LSP" }
-                    )
-                  end
-                end
-                vim.lsp.enable(server)
+                configure(server)
               end
             end
 
             vim.lsp.enable "gdscript"
+
+            -- region not installed via mason
+            configure "kotlin_lsp"
+            -- endregion
           end
 
           setup_servers()
