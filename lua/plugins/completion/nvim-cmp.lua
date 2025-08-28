@@ -222,32 +222,34 @@ return {
       config = function()
         require("codecompanion").setup {
           adapters = {
-            copilot = function()
-              return require("codecompanion.adapters").extend("copilot", {
-                -- suggested by @lucobellic (ref: https://github.com/olimorris/codecompanion.nvim/discussions/279) to improve responses from the copilot models
-                -- see also https://github.com/lucobellic/nvim-config/blob/d8b0e7d34652704cfba85c130663823a0200bf77/lua/plugins/completion/codecompanion.lua#L53
-                opts = { stream = false },
-                schema = {
-                  model = {
-                    -- https://platform.openai.com/docs/models
-                    default = "gpt-4o",
+            http = {
+              copilot = function()
+                return require("codecompanion.adapters").extend("copilot", {
+                  -- suggested by @lucobellic (ref: https://github.com/olimorris/codecompanion.nvim/discussions/279) to improve responses from the copilot models
+                  -- see also https://github.com/lucobellic/nvim-config/blob/d8b0e7d34652704cfba85c130663823a0200bf77/lua/plugins/completion/codecompanion.lua#L53
+                  opts = { stream = false },
+                  schema = {
+                    model = {
+                      -- https://platform.openai.com/docs/models
+                      default = "gpt-4o",
+                    },
                   },
-                },
-              })
-            end,
-            gemini = function()
-              return require("codecompanion.adapters").extend("gemini", {
-                -- env = {
-                --   api_key = os.getenv "GEMINI_API_KEY",
-                -- },
-                schema = {
-                  model = {
-                    -- https://ai.google.dev/gemini-api/docs/models/experimental-models
-                    default = require("serpro69.plugins_aux").ai_models.gemini.pro,
+                })
+              end,
+              gemini = function()
+                return require("codecompanion.adapters").extend("gemini", {
+                  -- env = {
+                  --   api_key = os.getenv "GEMINI_API_KEY",
+                  -- },
+                  schema = {
+                    model = {
+                      -- https://ai.google.dev/gemini-api/docs/models/experimental-models
+                      default = require("serpro69.plugins_aux").ai_models.gemini.pro,
+                    },
                   },
-                },
-              })
-            end,
+                })
+              end,
+            },
           },
           strategies = {
             chat = {
