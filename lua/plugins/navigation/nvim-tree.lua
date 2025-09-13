@@ -13,7 +13,7 @@ local function on_attach(bufnr)
   vim.keymap.set("n", "l", api.node.open.edit, opts "Open")
   vim.keymap.set("n", "u", api.tree.change_root_to_parent, opts "Up")
 
-  require("serpro69.plugins_aux").keymaps.nvim_tree(opts)
+  require("serpro69.plugins_aux").keymaps.nvim_tree(api, opts, bufnr)
 end
 
 -- NOTE: File Explorer
