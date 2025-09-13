@@ -14,11 +14,9 @@ M.ai_models = {
 }
 
 M.keymaps = {
-  nvim_tree = function(opts)
-    local api = require "nvim-tree.api"
-
-    -- Add file/folder to avante
-    -- Based on https://github.com/yetone/avante.nvim?tab=readme-ov-file#neotree-shortcut
+  nvim_tree = function(api, opts, bufnr)
+    -- region Add file/folder to avante
+    -- based on https://github.com/yetone/avante.nvim?tab=readme-ov-file#neotree-shortcut
     vim.keymap.set("n", "oa", function()
       local node = api.tree.get_node_under_cursor()
       if not node then
@@ -44,6 +42,35 @@ M.keymaps = {
         sidebar.file_selector:remove_selected_file "NvimTree_1"
       end
     end, opts "Add to Avante Selected Files")
+    -- endregion
+
+    -- region ARIA navigation
+    -- ref: https://github.com/nvim-tree/nvim-tree.lua/wiki/Recipes#basic-aria-navigation-arrows-and-vim-keys
+    api.config.mappings.default_on_attach(bufnr)
+    -- function for left to assign to keybindings
+    local lefty = function()
+      local node_at_cursor = api.tree.get_node_under_cursor()
+      -- if it's a node and it's open, close
+      if node_at_cursor.nodes and node_at_cursor.open then
+        api.node.open.edit()
+      -- else left jumps up to parent
+      else
+        api.node.navigate.parent()
+      end
+    end
+    -- function for right to assign to keybindings
+    local righty = function()
+      local node_at_cursor = api.tree.get_node_under_cursor()
+      -- if it's a closed node, open it
+      if node_at_cursor.nodes and not node_at_cursor.open then
+        api.node.open.edit()
+      end
+    end
+    vim.keymap.set("n", "h", lefty, opts "Close open node, or jump up to parent")
+    vim.keymap.set("n", "<Left>", lefty, opts "Close open node, or jump up to parent")
+    vim.keymap.set("n", "<Right>", righty, opts "Open closed node")
+    vim.keymap.set("n", "l", righty, opts "Open closed node")
+    -- endregion
   end,
 }
 
