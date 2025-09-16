@@ -4,6 +4,7 @@ return {
   "OXY2DEV/markview.nvim",
   -- lazy = false,
   ft = { "markdown", "Avante", "codecompanion", "opencode_output" },
+  enabled = false,
   init = function()
     vim.keymap.set("n", "<leader>m", function()
       if vim.bo.filetype == "markdown" then
