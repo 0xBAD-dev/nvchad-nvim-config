@@ -2,6 +2,7 @@
 -- NOTE: Note Taking
 return {
   "nvim-neorg/neorg",
+  enabled = false,
   lazy = false,
   version = "*",
   opts = {
