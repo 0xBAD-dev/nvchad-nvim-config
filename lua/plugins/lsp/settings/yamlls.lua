@@ -16,13 +16,13 @@ return {
         -- mkdocs
         -- ref: https://www.mkdocs.org/user-guide/configuration/#environment-variables
         -- ref: https://squidfunk.github.io/mkdocs-material/creating-your-site/#minimal-configuration
-        "!ENV scalar",
-        "!ENV sequence",
-        "!relative scalar",
-        "tag:yaml.org,2002:python/name:material.extensions.emoji.to_svg",
-        "tag:yaml.org,2002:python/name:material.extensions.emoji.twemoji",
-        "tag:yaml.org,2002:python/name:pymdownx.superfences.fence_code_format",
-        "tag:yaml.org,2002:python/object/apply:pymdownx.slugs.slugify mapping",
+        -- "!ENV scalar",
+        -- "!ENV sequence",
+        -- "!relative scalar",
+        -- "tag:yaml.org,2002:python/name:material.extensions.emoji.to_svg",
+        -- "tag:yaml.org,2002:python/name:material.extensions.emoji.twemoji",
+        -- "tag:yaml.org,2002:python/name:pymdownx.superfences.fence_code_format",
+        -- "tag:yaml.org,2002:python/object/apply:pymdownx.slugs.slugify mapping",
       },
     },
   },
