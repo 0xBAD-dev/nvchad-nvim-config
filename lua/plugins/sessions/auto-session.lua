@@ -3,6 +3,7 @@
 return {
   "rmagatti/auto-session",
   event = "VeryLazy",
+  enabled = false,
   init = function()
     vim.keymap.set("n", "<leader>st", "<cmd>SessionToggleAutoSave<cr>", { desc = "Session | Toggle", silent = true })
     vim.keymap.set("n", "<leader>sS", "<cmd>Telescope session-lens<cr>", { desc = "Session | Search", silent = true })
