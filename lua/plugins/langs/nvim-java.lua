@@ -3,6 +3,7 @@
 return {
   "nvim-java/nvim-java",
   ft = { "java" },
+  enabled = false,
   config = function()
     require("java").setup()
     require("lspconfig").jdtls.setup {
