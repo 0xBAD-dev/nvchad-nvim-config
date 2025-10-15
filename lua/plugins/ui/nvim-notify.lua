@@ -2,15 +2,15 @@
 -- NOTE: Notification
 return {
   "rcarriga/nvim-notify",
-  lazy = false,
-  -- event = "VeryLazy",
+  -- lazy = false,
+  event = "VeryLazy",
   opts = {
     level = 2,
-    minimum_width = 30,
-    render = "wrapped-compact",
+    minimum_width = 50,
+    render = "default",
     stages = "fade_in_slide_out",
     timeout = 3000,
-    -- top_down = true,
+    top_down = false,
 
     -- make notification window non-focusable
     -- https://github.com/rcarriga/nvim-notify/issues/319#issuecomment-2710287050
