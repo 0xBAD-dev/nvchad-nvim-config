@@ -2,6 +2,7 @@
 -- NOTE: For Java
 return {
   "nvim-java/nvim-java",
+  enabled = false,
   event = "VeryLazy",
   config = function()
     require("java").setup()
