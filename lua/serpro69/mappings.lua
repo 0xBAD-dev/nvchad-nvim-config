@@ -12,7 +12,12 @@ vim.keymap.set("n", "<Esc>", "<cmd>noh<CR>", { desc = "General | Clear Search Hi
 -- delete original <leader>c for closing the buffer
 vim.keymap.del("n", "<leader>c")
 -- and set it to <leader>bc
-vim.keymap.set("n", "<leader>bc", "<cmd>Bdelete!<cr>", { desc = "General | Close Buffer", silent = true })
+vim.keymap.set(
+  "n",
+  "<leader>bc",
+  "<cmd>bp<bar>sp<bar>bn<bar>bd<cr>", -- cred: https://superuser.com/a/370121
+  { desc = "General | Close Buffer", silent = true }
+)
 -- set <leader>bd to close all buffers but the current one
 -- credits: https://stackoverflow.com/questions/4545275/vim-close-all-buffers-but-this-one
 vim.keymap.set(
