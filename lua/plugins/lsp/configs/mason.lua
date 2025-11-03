@@ -63,6 +63,12 @@ return {
                 if ok_settings then
                   local cfg = vim.tbl_deep_extend("force", settings, default_config)
                   vim.lsp.config(server, cfg)
+                else
+                  vim.notify(
+                    string.format("LSP settings file for '%s' not found", server),
+                    vim.log.levels.WARN,
+                    { title = "LSP" }
+                  )
                 end
                 vim.lsp.enable(server)
               end
