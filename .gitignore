@@ -1,0 +1,19 @@
+# ignore all hidden
+.*
+# except
+!.gitattributes
+!.gitignore
+!.gitmodules
+!.github
+!.github/**
+!.yamlfmt.yaml
+!.yamllint.yml
+
+# AI tools
+!.serena
+!.claude
+!.taskmaster
+
+# Logs
+logs
+*.log*
