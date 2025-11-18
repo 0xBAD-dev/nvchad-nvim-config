@@ -1,3 +1,7 @@
+> [!WARNING]
+> This repo is not being actively maintained anymore. You can still use it, as I do, but I won't push regular updates.
+> For an up-to-date version see [serpro69/nvim-config](https://github.com/serpro69/nvim-config), which is based on LazyVim distribution.
+
 <div align="center">
 
 ![](https://img.shields.io/github/last-commit/serpro69/nvim-config?style=for-the-badge&logo=git&color=000F10&logoColor=dark%20orange&labelColor=302D41)
